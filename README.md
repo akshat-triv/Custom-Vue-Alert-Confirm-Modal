@@ -1,5 +1,7 @@
 # custom-alert-confirm-modal
 
+## This is a demo project for one of my articles for my blog on medium. [Link](https://medium.com/@akshattriv)
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
