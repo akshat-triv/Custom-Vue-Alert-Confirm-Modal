@@ -12,8 +12,6 @@ async function openAlertConfirm(alertModal = false) {
 
   const confirmMessage = "It was quite interesting and elegant right?";
 
-  console.log(alertModal);
-
   const userInput = await alertConfirm.value?.openModal(
     alertModal ? alertMessage : confirmMessage,
     alertModal
