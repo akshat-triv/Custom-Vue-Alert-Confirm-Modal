@@ -7,7 +7,7 @@ import CrossIcon from "@/components/icons/IconCancel.vue";
 // To show the confirm modal
 const showConfirm = ref(false);
 // Resolve promise function
-const resolvePromise = ref<(value: boolean | PromiseLike<boolean>) => void>();
+let resolvePromise: (value: PromiseLike<boolean> | boolean) => void;
 
 const modalType = ref<"confirm" | "alert">("confirm");
 
@@ -24,14 +24,14 @@ function openModal(message: string, alertModal: boolean) {
   showConfirm.value = true;
 
   return new Promise((resolve) => {
-    resolvePromise.value = resolve;
+    resolvePromise = resolve;
   });
 }
 
 function handleUserInput(value: boolean) {
-  if (!resolvePromise.value) return;
+  if (!resolvePromise) return;
 
-  resolvePromise.value(value);
+  resolvePromise(value);
 
   showConfirm.value = false;
 }
